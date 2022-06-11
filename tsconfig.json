@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "outDir": "build/dist",
+    "baseUrl": ".",
+    "incremental": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types/"],
+    "types": ["mocha", "circom_tester", "ffjavascript"]
+  },
+  "include": ["./src", "./test"],
+  "exclude": ["node_modules"]
+}

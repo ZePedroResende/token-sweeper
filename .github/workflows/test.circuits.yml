@@ -1,0 +1,31 @@
+name: Test circuits
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+    paths:
+      - "src/circuits/**/*.circom"
+      - "test/circuits/**/*.ts"
+  pull_request:
+    types: [opened, synchronize]
+    path:
+      - "src/circuits/**/*.circom"
+      - "test/circuits/**/*.ts"
+
+jobs:
+  circuits-test-suite:
+    runs-on: ubuntu-latest
+    container: naps62/circom:0.2.0
+
+    env:
+      FORCE_COLOR: true
+      REPORT_GAS: true
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: yarn install --immutable
+      - run: yarn test:circuits
